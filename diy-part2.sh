@@ -9,3 +9,5 @@ chmod +x files/usr/bin/sing-box
 
 # sing-box依賴刪除
 sed -i 's/+sing-box//g' feeds/momo/momo/Makefile
+
+rm -rf files/etc/banner
