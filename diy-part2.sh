@@ -8,6 +8,6 @@ sed -i 's/192.168.6.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 #chmod +x files/usr/bin/sing-box
 
 # sing-box依賴刪除
-sed -i 's/+sing-box//g' feeds/momo/momo/Makefile
+# sed #sed #sed -i 's/+sing-box//g' feeds/momo/mom
 
 rm -rf files/etc/banner
