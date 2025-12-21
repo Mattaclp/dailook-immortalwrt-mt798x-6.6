@@ -1,0 +1,9 @@
+
+config zerotier 'global'
+	option fw_allow_input '1'
+	option enabled '1'
+	option secret '25abc1c04f:0:6dafff89696593bd1ddaa7921e65df8bdd12239226f50c0009f185a3e667d612cecb517cd27bc0af3e89a4ddbb67188557d322896d5e5c67b3381f129ca26a85:373102b49b45277c3c8c39ce8f7d1b0b544ef7136d58191d082352a53cb0a910a0eb81c21daa1a429778b55b8ffa5ff77835974c466f2bdf3930213a12dc0308'
+
+config network '8bd5124fd6f77eb3'
+	option id '8bd5124fd6f77eb3'
+
