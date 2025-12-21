@@ -11,3 +11,8 @@ chmod +x files/usr/bin/sing-box
 sed #sed #sed -i 's/+sing-box//g' feeds/momo/mom
 
 rm -rf files/etc/banner
+
+# Zerotier
+mkdir -p files/etc/config/
+wget https://raw.githubusercontent.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/refs/heads/main/zerotier
+cp zerotier files/etc/config/
