@@ -71,11 +71,11 @@ jobs:
         
         # all of these default to true, but feel free to set to
         # "false" if necessary for your workflow
-        android: false
-        dotnet: false
-        haskell: false
-        large-packages: false
-        swap-storage: false
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        swap-storage: true
 
     - name: 下载固件源码
       working-directory: /workdir
@@ -119,6 +119,14 @@ jobs:
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
+    - name: Pre-compile Rust Host
+      run: |
+        cd openwrt
+        # 強制清理可能損壞的 Rust 構建目錄
+        make package/feeds/packages/rust/host/clean
+        # 先單獨編譯 Rust，避免在大規模並行時磁碟或記憶體溢出
+        make package/feeds/packages/rust/host/compile V=s -j$(nproc)
 
     - name: 编译固件
       id: compile
