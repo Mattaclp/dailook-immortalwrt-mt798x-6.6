@@ -10,7 +10,7 @@ on:
     inputs:
       device:
         description: '编译设备型号'
-        required: false
+        required: true
         type: choice
         default: 'all'
         options:
