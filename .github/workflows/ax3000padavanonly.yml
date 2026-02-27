@@ -62,21 +62,29 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: 清理磁盘空间(Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        # this might remove tools that are actually needed,
-        # when set to "true" but frees about 6 GB
-        tool-cache: true
-        
-        # all of these default to true, but feel free to set to
-        # "false" if necessary for your workflow
-        android: true
-        dotnet: true
-        haskell: true
-        large-packages: true
-        swap-storage: true
+#    - name: 清理磁盘空间(Ubuntu)
+#      uses: jlumbroso/free-disk-space@main
+#      with:
+#        # this might remove tools that are actually needed,
+#        # when set to "true" but frees about 6 GB
+#        tool-cache: true
+#        
+#        # all of these default to true, but feel free to set to
+#        # "false" if necessary for your workflow
+#        android: true
+#        dotnet: true
+#        haskell: true
+#        large-packages: true
+#        swap-storage: true
 
+    - name: Free Disk Space (Ubuntu)
+      run: |
+        sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/powershell /usr/share/swift /usr/local/bin/kubectl /usr/local/bin/terraform
+        sudo apt-get -y purge azure-cli* docker-desktop* google-cloud-sdk* dotnet-sdk*
+        sudo apt-get -y autoremove --purge
+        sudo apt-get clean
+        df -h
+        
     - name: 下载固件源码
       working-directory: /workdir
       run: |
@@ -119,6 +127,14 @@ jobs:
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
+    - name: Pre-compile Rust Host
+      run: |
+        cd openwrt
+        # 強制清理可能損壞的 Rust 構建目錄
+        make package/feeds/packages/rust/host/clean
+        # 先單獨編譯 Rust，避免在大規模並行時磁碟或記憶體溢出
+        make package/feeds/packages/rust/host/compile V=s -j$(nproc)
 
     - name: 编译固件
       id: compile
