@@ -24,3 +24,11 @@ mv last_commit_position.h feeds/packages/devel/gn/src/out/last_commit_position.h
 #mkdir -p files/etc/config/
 #wget https://raw.githubusercontent.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/refs/heads/main/zerotier
 #cp zerotier files/etc/config/
+
+# Add OpenClash Meta
+#mkdir -p files/etc/openclash/core
+#wget -qO "clash_meta.tar.gz" "https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
+#tar -zxvf "clash_meta.tar.gz" -C files/etc/openclash/core/
+#mv files/etc/openclash/core/clash files/etc/openclash/core/clash_meta
+#chmod +x files/etc/openclash/core/clash_meta
+#rm -f "clash_meta.tar.gz"
