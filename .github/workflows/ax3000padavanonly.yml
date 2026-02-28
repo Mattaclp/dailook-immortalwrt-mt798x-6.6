@@ -95,7 +95,6 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds update -a
-        wget -O feeds/packages/lang/rust/Makefile https://raw.githubusercontent.com/immortalwrt/packages/refs/heads/master/lang/rust/Makefile
         ./scripts/feeds install -a
 
     - name: 加载config & DIY_P2_SH
