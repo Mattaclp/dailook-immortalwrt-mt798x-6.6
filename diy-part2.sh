@@ -1,3 +1,10 @@
+# Rust 1.89.0
+git clone https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6.git
+rm -rf feeds/packages/lang/rust/Makefile
+rm -rf feeds/packages/lang/rust/patches/0001-Update-xz2-and-use-it-static.patch
+cp -r dailook-immortalwrt-mt798x-6.6/rust/0001-Update-xz2-and-use-it-static.patch feeds/packages/lang/rust/patches/
+cp -r dailook-immortalwrt-mt798x-6.6/rust/Makefile feeds/packages/lang/rust/
+
 sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 # Modify default IP
