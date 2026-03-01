@@ -5,7 +5,7 @@ rm -rf feeds/packages/lang/rust/patches/0001-Update-xz2-and-use-it-static.patch
 cp -r dailook-immortalwrt-mt798x-6.6/rust/0001-Update-xz2-and-use-it-static.patch feeds/packages/lang/rust/patches/
 cp -r dailook-immortalwrt-mt798x-6.6/rust/Makefile feeds/packages/lang/rust/
 
-sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
+# sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 # Modify default IP
 sed -i 's/192.168.6.1/192.168.10.1/g' package/base-files/files/bin/config_generate
