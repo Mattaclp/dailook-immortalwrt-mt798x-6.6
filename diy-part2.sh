@@ -4,6 +4,9 @@ rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2sock
 # 移除过时的luci-app-passwall版本
 rm -rf feeds/luci/applications/luci-app-passwall
 
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+
 # Rust 1.89.0
 git clone https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6.git
 rm -rf feeds/packages/lang/rust/Makefile
