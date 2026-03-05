@@ -1,3 +1,6 @@
+# 移除 passwall feeds 自带的核心库
+rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
+
 # Rust 1.89.0
 git clone https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6.git
 rm -rf feeds/packages/lang/rust/Makefile
