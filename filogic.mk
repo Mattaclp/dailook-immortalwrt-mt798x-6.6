@@ -636,6 +636,8 @@ define Device/cmcc_rax3000me
   BLOCKSIZE := 128k
   PAGESIZE := 2048
   IMAGE_SIZE := 116736k
+  IMAGES := sysupgrade.bin factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 TARGET_DEVICES += cmcc_rax3000me
