@@ -1,7 +1,10 @@
 # Change RAX3000Me firmware itb to bin
-#rm -rf target/linux/mediatek/image/filogic.mk
-#wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/filogic.mk
-#cp -r filogic.mk target/linux/mediatek/image/
+rm -rf target/linux/mediatek/image/filogic.mk
+wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/filogic.mk
+cp -r filogic.mk target/linux/mediatek/image/
+rm -rf target/linux/mediatek/dts/mt7981b-cmcc-rax3000m.dts
+wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/mt7981b-cmcc-rax3000m.dts
+cp -r mt7981b-cmcc-rax3000m.dts target/linux/mediatek/dts/
 
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
