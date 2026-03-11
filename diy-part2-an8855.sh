@@ -2,8 +2,8 @@
 rm -rf target/linux/mediatek/image/filogic.mk
 wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/an8855/filogic.mk
 cp -r filogic.mk target/linux/mediatek/image/
-rm -rf https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/an8855/mt7981b-cmcc-rax3000m.dts
-wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/mt7981b-cmcc-rax3000m.dts
+rm -rf target/linux/mediatek/dts/mt7981b-cmcc-rax3000m.dts
+wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/an8855/mt7981b-cmcc-rax3000m.dts
 cp -r mt7981b-cmcc-rax3000m.dts target/linux/mediatek/dts/
 wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/raw/refs/heads/main/an8855/mt7981b-cmcc-rax3000m-nand-ubootmod.dts
 cp -r mt7981b-cmcc-rax3000m-nand-ubootmod.dts target/linux/mediatek/dts/
