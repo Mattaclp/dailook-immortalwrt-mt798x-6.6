@@ -54,6 +54,8 @@ mv last_commit_position.h feeds/packages/devel/gn/src/out/last_commit_position.h
 #chmod +x files/etc/openclash/core/clash_meta
 #rm -f "clash_meta.tar.gz"
 
+rm -rf feeds/luci/applications/luci-app-openclash
+
 function git_sparse_clone() {
   branch="$1" repourl="$2" && shift 2
   git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
