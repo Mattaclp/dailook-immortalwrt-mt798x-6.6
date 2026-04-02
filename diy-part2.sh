@@ -22,9 +22,9 @@ sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 # Modify default IP
 sed -i 's/192.168.6.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
-# Use sing-box-1.13.0-reF1nd-linux-arm64
-#mkdir -p files/usr/bin/
-#wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/releases/download/sing-box-1.13.0-reF1nd-linux-arm64/sing-box
+# Use sing-box-1.13.5-reF1nd-linux-arm64
+mkdir -p files/usr/bin/
+wget https://github.com/Mattaclp/dailook-immortalwrt-mt798x-6.6/releases/download/sing-box-1.13.5-reF1nd-linux-arm64/sing-box
 #cp sing-box files/usr/bin/
 #chmod +x files/usr/bin/sing-box
 
