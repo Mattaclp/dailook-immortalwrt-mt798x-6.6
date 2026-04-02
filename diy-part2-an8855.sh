@@ -67,3 +67,21 @@ mv last_commit_position.h feeds/packages/devel/gn/src/out/last_commit_position.h
 #mv files/etc/openclash/core/clash files/etc/openclash/core/clash_meta
 #chmod +x files/etc/openclash/core/clash_meta
 #rm -f "clash_meta.tar.gz"
+
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../
+  cd .. && rm -rf $repodir
+}
+
+git_sparse_clone dev https://github.com/vernesong/OpenClash luci-app-openclash
+cp -rf luci-app-openclash package
+
+mkdir bin
+mkdir bin/packages
+cp -r package/luci-app-openclash bin/packages/
+zip -r luci-app-openclash.zip bin/packages/luci-app-openclash
+cp -r luci-app-openclash.zip bin/packages/luci-app-openclash.zip
